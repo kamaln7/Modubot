@@ -3,7 +3,8 @@
 Class Modubot_Say extends Modubot_Module {
 
 	public $regex = '';
-	private $forbidden = array('!', 'esperbot', 'borg', 'dicector', 'derpserv', 'espercorn', 'minebot', 'zsh', 'faerie', 'giygas', 'chanserv', 'nyanbot', 'kamalserv', 'foreveralone', 'troll', 'bash', 'derp', 'deropina', 'wololo', 'vartor', 'x', '-', 'kaboom', 'gaygas', 'nyanbot', 'missingno', 'poop', '\o', 'nyanserv');
+	//Words that the bot should not say if the command issuer is not an halfop+ to prevent premission abuse.
+	private $forbidden = array('!', 'esperbot', 'borg', 'dicector', 'derpserv', 'espercorn', 'minebot', 'zsh', 'faerie', 'giygas', 'chanserv', 'nyanbot', 'foreveralone', 'troll', 'bash', 'derp', 'deropina', 'wololo', 'vartor', 'x', '-', 'kaboom', 'gaygas', 'nyanbot', 'missingno', 'poop', '\o', 'nyanserv');
 	public $helpline = 'makes the bot say [input] in the same channel the command was sent from.';
 
 	public function process(&$that, &$socket, $data, $input, $command, $args){
@@ -34,7 +35,7 @@ Class Modubot_Say extends Modubot_Module {
 			else
 				$this->privmsg($socket, $channel, $sender . ': You are not authorized to begin the text with ' . $forbidden_used . ($forbidden_used == '!' ? '.' : '!'));
 		}else {
-	 		$this->privmsg($socket, $channel, $sender . ": Usage: {$that->prefix}say hello :3");
+	 		$this->privmsg($socket, $channel, $sender . ": Usage: {$that->prefix}say hey there");
 	 	}
 	}
 }
