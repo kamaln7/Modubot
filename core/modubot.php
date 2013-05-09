@@ -364,7 +364,7 @@ class Modubot
             case 'whoischannel':
                 $who = preg_quote($with['who'], '/');
                 $channel = preg_quote($with['channel'], '/');
-                if (preg_match("/:[a-zA-Z0-9\.]+ 319 {$this->nick} ({$who}) :.*?([~&@%\+]*){$channel}.*?/i", $data, $matches)) {
+                if (preg_match("/:[a-zA-Z0-9\.]+ 319 {$this->nick} ({$who}) :.*?([~&@%\+]*){$channel}[\s|$]/i", $data, $matches)) {
                     return $matches;
                 } else {
                     return false;
